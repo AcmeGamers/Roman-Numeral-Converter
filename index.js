@@ -1,34 +1,64 @@
 function convertToRoman(num) {
   var roman = "";
   var romanNum = [
-    ["M", 1000],
-    ["CM", 900],
-    ["D", 500],
-    ["CD", 400],
-    ["C", 100],
-    ["XC", 90],
-    ["L", 50],
-  ];
-  var romanNum2 = [
-    ["X", 10],
-    ["IX", 9],
-    ["V", 5],
-    ["IV", 4],
-    ["I", 1],
+    {
+      value: 1000,
+      letter: "M",
+    },
+    {
+      value: 900,
+      letter: "CM",
+    },
+    {
+      value: 500,
+      letter: "D",
+    },
+    {
+      value: 400,
+      letter: "CD",
+    },
+    {
+      value: 100,
+      letter: "C",
+    },
+    {
+      value: 90,
+      letter: "XC",
+    },
+    {
+      value: 50,
+      letter: "L",
+    },
+    {
+      value: 40,
+      letter: "XL",
+    },
+    {
+      value: 10,
+      letter: "X",
+    },
+    {
+      value: 9,
+      letter: "IX",
+    },
+    {
+      value: 5,
+      letter: "V",
+    },
+    {
+      value: 4,
+      letter: "IV",
+    },
+    {
+      value: 1,
+      letter: "I",
+    },
   ];
   for (var i = 0; i < romanNum.length; i++) {
-    while (num >= romanNum[i][1]) {
-      roman += romanNum[i][0];
-      num -= romanNum[i][1];
-    }
-  }
-  for (var i = 0; i < romanNum2.length; i++) {
-    while (num >= romanNum2[i][1]) {
-      roman += romanNum2[i][0];
-      num -= romanNum2[i][1];
+    while (num >= romanNum[i].value) {
+      roman += romanNum[i].letter;
+      num -= romanNum[i].value;
     }
   }
   return roman;
 }
-
-convertToRoman(36);
